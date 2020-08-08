@@ -31,20 +31,31 @@ public class PersonForEquals {
         return yearOfBirth;
     }
 
+
+
     @SuppressWarnings("Contract")
     @Override
     public boolean equals(Object obj) {
         // TODO: please modify the following code to pass the test
         // <--start
-        throw new NotImplementedException();
+        if (this == obj){
+            return true;
+        }
+        if (!(obj instanceof PersonForEquals)){
+            return false;
+        }
+        PersonForEquals personForEquals = (PersonForEquals) obj;
+        return this.name.equals(personForEquals.name) && this.yearOfBirth == personForEquals.yearOfBirth;
         // --end-->
     }
+
 
     @Override
     public int hashCode() {
         // TODO: please modify the following code to pass the test
         // <--start
-        throw new NotImplementedException();
+            return Objects.hash(name, yearOfBirth);
         // --end-->
     }
+
 }
